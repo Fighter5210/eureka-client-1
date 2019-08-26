@@ -1,4 +1,4 @@
-package com.ws.eureka;
+package com.ws;
 
 
 import org.springframework.boot.SpringApplication;
@@ -13,7 +13,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @create: 2019/5/16 下午8:24
  **/
 @EnableEurekaClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages={
+        "com.ws"})
 public class EurekaClientApplication {
     public static void main(String[] args) {
         SpringApplication.run(EurekaClientApplication.class, args);
