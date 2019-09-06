@@ -18,19 +18,21 @@ import javax.annotation.Resource;
 @RequestMapping(value = "/test")
 public class TestController {
 
-    @LoadBalanced
+//    @Resource
+//    RestTemplate restTemplate;
     @Resource
-    RestTemplate restTemplate;
+    TestService testService;
     /**
      * @Description: 获取名称
      * @return:
      * @author:wangdy
      * @Date: 2019/8/22 下午8:58
     */
-    @GetMapping("/names")
-    public String getNames(){
-        String names = restTemplate.getForObject("http://eureka-client-2/eureka2/test/names",String.class);
-        return names;
+    @GetMapping("/randoms")
+    public String getRandoms(){
+        //String names = restTemplate.getForObject("http://eureka-client-2/eureka2/test/names",String.class);
+        String random = testService.getRandom();
+        return random;
     }
 
 
